@@ -1,16 +1,18 @@
-# quiz_app
+<h1 align="center">Welcome to flutter-quiz-app 👋</h1>
 
-A new Flutter project.
+> A Flutter teaching quiz app I created to learn the basics of Flutter and Dart.
 
-## Getting Started
+## Author
 
-This project is a starting point for a Flutter application.
+👤 **Ankit Tiwari**
 
-A few resources to get you started if this is your first Flutter project:
+* Website: https://anku.codes
+* Github: [@anku255](https://github.com/anku255)
+* LinkedIn: [@anku255](https://linkedin.com/in/anku255)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Show your support
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
