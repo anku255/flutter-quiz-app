@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/questions_screen.dart';
+import 'package:quiz_app/result_screen.dart';
 import 'package:quiz_app/start_screen.dart';
 
 class Quiz extends StatefulWidget {
@@ -11,14 +13,32 @@ class Quiz extends StatefulWidget {
   }
 }
 
-enum Screens { startScreen, questionsScreen }
+enum Screens { startScreen, questionsScreen, resultScreen }
 
 class _QuizState extends State<Quiz> {
   Screens activeScreen = Screens.startScreen;
+  List<String> selectedAnswers = [];
 
   void switchScreen() {
     setState(() {
       activeScreen = Screens.questionsScreen;
+    });
+  }
+
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        activeScreen = Screens.resultScreen;
+      });
+    }
+  }
+
+  void resetAnswers() {
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = Screens.startScreen;
     });
   }
 
@@ -30,7 +50,14 @@ class _QuizState extends State<Quiz> {
           decoration: const BoxDecoration(color: Colors.deepPurple),
           child: activeScreen == Screens.startScreen
               ? StartScreen(startQuiz: switchScreen)
-              : const QuestionsScreen(),
+              : activeScreen == Screens.questionsScreen
+                  ? QuestionsScreen(
+                      onSelectAnswer: chooseAnswer,
+                    )
+                  : ResultScreen(
+                      chosenAnswers: selectedAnswers,
+                      onRestart: resetAnswers,
+                    ),
         ),
       ),
     );
